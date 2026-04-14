@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdelrahman | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<style>
+:root{
+--bg:#020617;
+--card:rgba(255,255,255,0.05);
+--accent:#22d3ee;
+--blue:#0ea5e9;
+--text:#e2e8f0;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
+
+body{
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+}
+
+canvas{
+position:fixed;
+top:0;left:0;
+width:100%;
+height:100%;
+z-index:-3;
+}
+
+body::before{
+content:"";
+position:fixed;
+width:100%;height:100%;
+background:radial-gradient(circle at var(--x,50%) var(--y,50%),rgba(34,211,238,0.18),transparent 45%);
+z-index:-2;
+}
+
+body::after{
+content:"";
+position:fixed;
+width:100%;height:100%;
+background:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);
+background-size:60px 60px;
+z-index:-4;
+opacity:.2;
+}
+
+nav{
+position:fixed;
+top:15px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:18px;
+padding:12px 18px;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(12px);
+border-radius:14px;
+z-index:999;
+}
+
+nav a{
+color:#aaa;
+text-decoration:none;
+transition:.3s;
+font-size:14px;
+}
+
+nav a:hover{
+color:#fff;
+text-shadow:0 0 15px var(--accent);
+}
+
+section{
+padding:120px 20px;
+max-width:1100px;
+margin:auto;
+opacity:0;
+transform:translateY(60px);
+}
+
+section:nth-child(even){
+background:rgba(255,255,255,0.02);
+border-radius:20px;
+backdrop-filter:blur(2px);
+}
+
+.hero{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.hero h1{
+font-size:48px;
+font-weight:700;
+background:linear-gradient(90deg,var(--blue),var(--accent));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+opacity:.8;
+margin-top:10px;
+}
+
+.hero-img{
+width:180px;height:180px;
+border-radius:50%;
+overflow:hidden;
+border:2px solid var(--accent);
+box-shadow:0 0 40px var(--accent);
+transform:translateZ(50px);
+}
+
+.hero-img img{
+width:100%;height:100%;
+object-fit:cover;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:var(--card);
+padding:20px;
+border-radius:16px;
+transition:.4s;
+position:relative;
+overflow:hidden;
+}
+
+.card:hover{
+transform:translateY(-12px) scale(1.02);
+box-shadow:0 0 30px var(--accent);
+}
+
+.project img{
+width:100%;
+height:170px;
+object-fit:cover;
+border-radius:10px;
+transition:.4s;
+}
+
+.project:hover img{
+transform:scale(1.15);
+filter:brightness(1.2);
+}
+
+.icons{
+display:flex;
+gap:30px;
+margin-top:20px;
+font-size:32px;
+}
+
+.icons a{
+transition:.3s;
+}
+
+/* BIG ICONS + COLOR HOVER */
+.icons a:nth-child(1):hover{color:#25D366; transform:scale(1.4)}
+.icons a:nth-child(2):hover{color:#1877F2; transform:scale(1.4)}
+.icons a:nth-child(3):hover{color:#E1306C; transform:scale(1.4)}
+
+input,textarea{
+width:100%;
+padding:14px;
+margin-top:10px;
+background:#0a0f1f;
+border:1px solid #1e293b;
+color:#fff;
+border-radius:10px;
+}
+
+button{
+padding:12px 18px;
+margin-top:10px;
+border:none;
+border-radius:10px;
+background:linear-gradient(90deg,var(--blue),var(--accent));
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px var(--accent);
+}
+
+@media(max-width:768px){
+.hero{flex-direction:column;text-align:center}
+.hero-img{margin-top:20px}
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#experience">Experience</a>
+<a href="#projects">Projects</a>
+<a href="#education">Education</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section class="hero">
+<div>
+<h1 id="typing"></h1>
+<p>Data Analyst • Backend Developer • Project Manager • Instructor</p>
+</div>
+
+<div class="hero-img">
+<img src="WhatsApp Image 2026-04-05 at 1.28.09 PM.jpeg">
+</div>
+</section>
+
+<section id="about">
+<h2>About Me</h2>
+<div class="card">
+Software Engineer, Data Analyst, Instructor, and Entrepreneur. Founder of Code Box with experience leading teams, building systems, and delivering real-world scalable solutions in education & software development.
+</div>
+</section>
+
+
+<section id="skills">
+<h2>Core Skills</h2>
+<div class="grid">
+
+<div class="card">Data Analysis (Power BI • Excel • SQL)</div>
+<div class="card">Backend (.NET • C# • REST APIs)</div>
+<div class="card">Programming (Python • C • C++ • Java • PHP)</div>
+<div class="card">Flutter Mobile Development</div>
+<div class="card">Project Management & Leadership</div>
+<div class="card">Marketing & Business Strategy</div>
+
+</div>
+</section>
+
+<section id="experience">
+<h2>Experience</h2>
+<div class="grid">
+
+<div class="card">Code Box — Founder & Project Manager (2022–Present)</div>
+<div class="card">Wamd Academy — CTO & Marketing Manager (2025)</div>
+<div class="card">Union Academy — Marketing Manager (2024)</div>
+<div class="card">EFG Holding — Backend Developer Intern (2025)</div>
+<div class="card">Atlantis — Programming Instructor (2022)</div>
+
+</div>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<div class="grid">
+
+<div class="card project">
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
+<p>Power BI Career Dashboard System</p>
+</div>
+
+<div class="card project">
+<img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb">
+<p>Banking System (C++ Backend)</p>
+</div>
+
+<div class="card project">
+<img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0">
+<p>Hotel Management System</p>
+</div>
+
+<div class="card project">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+<p>Robotics & Embedded Systems</p>
+</div>
+
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+<h2>Education & Achievements</h2>
+<div class="grid">
+
+<div class="card">Bachelor of Computer Science — Modern Academy (2019–2023)</div>
+<div class="card">Speaker at Universities (4000–6000+ Students Impact)</div>
+<div class="card">Soft Skills: Leadership • Public Speaking • Problem Solving</div>
+<div class="card">Languages: Arabic (Native) • English (Very Good)</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact</h2>
+
+<input placeholder="Your Name">
+<textarea placeholder="Your Message"></textarea>
+<button>Send Message</button>
+
+<div class="icons">
+<a href="https://wa.me/201080830917"><i class="fab fa-whatsapp"></i></a>
+<a href="https://www.facebook.com/abdelrhaman.ahmed.675609?mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+<a href="https://www.instagram.com/3bdo_ahmmed?igsh=MW96ajVnZ3doZG5yOA=="><i class="fab fa-instagram"></i></a>
+</div>
+</section>
+
+<script>
+
+let text="Abdelrahman Ahmed Abdel Fattah";
+let i=0;
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text[i];
+i++;
+setTimeout(type,60);
+}}
+type();
+
+const canvas=document.getElementById("bg");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+for(let i=0;i<100;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+dx:(Math.random()-0.5),
+dy:(Math.random()-0.5)
+});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+p.x+=p.dx;
+p.y+=p.dy;
+
+if(p.x<0||p.x>canvas.width)p.dx*=-1;
+if(p.y<0||p.y>canvas.height)p.dy*=-1;
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="rgba(34,211,238,0.4)";
+ctx.fill();
+});
+
+requestAnimationFrame(animate);
+}
+animate();
+
+window.addEventListener("mousemove",(e)=>{
+document.body.style.setProperty("--x",e.clientX+"px");
+document.body.style.setProperty("--y",e.clientY+"px");
+});
+
+gsap.utils.toArray("section").forEach((sec,i)=>{
+gsap.fromTo(sec,
+{opacity:0,y:80,scale:0.98},
+{
+opacity:1,y:0,scale:1,
+duration:1,
+scrollTrigger:{
+trigger:sec,
+start:"top 80%",
+toggleActions:"play reverse play reverse"
+}
+});
+});
+
+</script>
+
+</body>
+</html>
