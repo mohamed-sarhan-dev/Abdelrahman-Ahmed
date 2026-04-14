@@ -54,8 +54,6 @@ background-size:60px 60px;
 z-index:-4;
 opacity:.2;
 }
-
-/* NAV */
 nav{
 position:fixed;
 top:15px;
@@ -82,16 +80,12 @@ color:#fff;
 text-shadow:0 0 15px var(--accent);
 }
 
-/* SECTIONS (FIX HERE) */
 section{
 padding:120px 20px;
 max-width:1100px;
 margin:auto;
-opacity:1;              /* FIXED */
-transform:translateY(0); /* FIXED */
 }
 
-/* HERO */
 .hero{
 display:flex;
 justify-content:space-between;
@@ -107,11 +101,6 @@ background:linear-gradient(90deg,var(--blue),var(--accent));
 -webkit-text-fill-color:transparent;
 }
 
-.hero p{
-opacity:.8;
-margin-top:10px;
-}
-
 .hero-img{
 width:180px;height:180px;
 border-radius:50%;
@@ -125,7 +114,6 @@ width:100%;height:100%;
 object-fit:cover;
 }
 
-/* GRID */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -137,13 +125,26 @@ background:var(--card);
 padding:20px;
 border-radius:16px;
 transition:.4s;
-position:relative;
-overflow:hidden;
+text-align:center;
 }
 
 .card:hover{
-transform:translateY(-12px) scale(1.02);
-box-shadow:0 0 30px var(--accent);
+transform:translateY(-10px);
+box-shadow:0 0 20px var(--accent);
+}
+
+.project img{
+width:100%;
+height:170px;
+object-fit:cover;
+border-radius:10px;
+}
+
+/* EVENT TITLE */
+.event-title{
+margin-top:10px;
+font-size:14px;
+opacity:0.8;
 }
 
 /* ICONS */
@@ -171,15 +172,6 @@ filter:drop-shadow(0 0 10px currentColor);
 .icons a:nth-child(2):hover{color:#1877F2;}
 .icons a:nth-child(3):hover{color:#E1306C;}
 .icons a:nth-child(4):hover{color:#0A66C2;}
-
-/* PROJECT IMAGES */
-.project img{
-width:100%;
-height:170px;
-object-fit:cover;
-border-radius:10px;
-transition:.4s;
-}
 
 /* INPUTS */
 input,textarea{
@@ -220,43 +212,93 @@ box-shadow:0 0 25px var(--accent);
 
 <nav>
 <a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#experience">Experience</a>
-<a href="#projects">Projects</a>
-<a href="#education">Education</a>
+<a href="#events">Events</a>
+<a href="#sessions">Sessions</a>
 <a href="#contact">Contact</a>
 </nav>
 
 <section class="hero">
 <div>
 <h1 id="typing"></h1>
-<p>Data Analyst • Backend Developer • Project Manager • Instructor</p>
+<p>Data Analyst • Project Manager • Instructor</p>
 </div>
 
 <div class="hero-img">
-<img src="WhatsApp Image 2026-04-05 at 1.28.09 PM.jpeg">
+<img src="photo eng.jpeg">
 </div>
 </section>
 
 <section id="about">
 <h2>About Me</h2>
 <div class="card">
-Software Engineer, Data Analyst, Instructor, and Entrepreneur.
+I am a Software Engineer, Data Analyst, Instructor, and Entrepreneur with extensive experience in developing educational systems and leading technical teams. As the founder of Code Box, I designed and managed a comprehensive learning ecosystem aimed at equipping students with the necessary skills for the job market, both technically and professionally. I have expertise in data analysis, backend development, teaching, and project management, with a proven track record of leading cross-functional teams, delivering scalable solutions, and overseeing real-world projects from inception to completion.
 </div>
 </section>
 
-<section id="gallery">
-<h2>Engineer Gallery</h2>
+<!-- EVENTS -->
+<section id="events">
+<h2>Events</h2>
 
 <div class="grid">
-<div class="card project"><img src="WhatsApp Image 2026-04-14 at 8.16.05 PM.jpeg"></div>
-<div class="card project"><img src="WhatsApp Image 2026-04-14 at 8.16.47 PM.jpeg"></div>
-<div class="card project"><img src="WhatsApp Image 2026-04-14 at 8.13.27 PM.jpeg"></div>
-<div class="card project"><img src="WhatsApp Image 2026-04-14 at 8.16.19 PM (1).jpeg"></div>
+
+<!-- 8 EVENTS -->
+<div class="card project">
+<img src="WhatsApp Image 2026-04-14 at 10.27.31 PM (2).jpeg">
+<div class="event-title">Event techne summit</div>
 </div>
 
+<div class="card project">
+<img src="WhatsApp Image 2026-04-14 at 10.27.31 PM (1).jpeg">
+<div class="event-title">Event techne summit</div>
+</div>
+
+<div class="card project">
+<img src="WhatsApp Image 2026-04-14 at 10.27.31 PM.jpeg">
+<div class="event-title">Event yly Ministry of Youth and Sports</div>
+</div>
+
+<div class="card project">
+<img src="WhatsApp Image 2026-04-14 at 10.27.30 PM (3).jpeg">
+<div class="event-title">Event  6th of October University</div>
+</div>
+
+<div class="card project">
+<img src="WhatsApp Image 2026-04-14 at 10.27.30 PM (2).jpeg">
+<div class="event-title"></div>
+</div>
+
+<div class="card project">
+<img src="WhatsApp Image 2026-04-14 at 10.27.30 PM (1).jpeg">
+<div class="event-title">Event tec</div>
+</div>
+
+<div class="card project">
+<img src="WhatsApp Image 2026-04-14 at 10.27.28 PM (1).jpeg">
+<div class="event-title">Event ACU</div>
+</div>
+
+<div class="card project">
+<img src="event.jpeg">
+<div class="event-title">Event Acu</div>
+</div>
+
+</div>
 </section>
 
+<!-- SESSIONS -->
+<section id="sessions">
+<h2>Sessions</h2>
+
+<div class="grid">
+
+<!-- 5 SESSIONS -->
+<div class="card project"><img src="WhatsApp Image 2026-04-14 at 10.27.30 PM.jpeg"></div>
+<div class="card project"><img src="WhatsApp Image 2026-04-14 at 10.28.47 PM (1).jpeg"></div>
+<div class="card project"><img src="WhatsApp Image 2026-04-14 at 10.27.28 PM.jpeg"></div>
+<div class="card project"><img src="WhatsApp Image 2026-04-14 at 10.28.47 PM (2).jpeg"></div>
+<div class="card project"><img src="WhatsApp Image 2026-04-14 at 10.28.47 PM.jpeg"></div>
+</div>
+</section>
 <section id="skills">
 <h2>Core Skills</h2>
 <div class="grid">
@@ -298,7 +340,6 @@ Software Engineer, Data Analyst, Instructor, and Entrepreneur.
 <div class="card">Languages</div>
 </div>
 </section>
-
 <section id="contact">
 <h2>Contact</h2>
 
@@ -317,10 +358,8 @@ Software Engineer, Data Analyst, Instructor, and Entrepreneur.
 
 <script>
 
-gsap.registerPlugin(ScrollTrigger);
-
-/* typing */
-let text="Abdelrahman Ahmed Abdel Fattah";
+// typing
+let text="Abdelrahman Ahmed";
 let i=0;
 function type(){
 if(i<text.length){
@@ -398,8 +437,6 @@ let phone="201080830917";
 let url=`https://wa.me/${phone}?text=Name:%20${name}%0AMessage:%20${message}`;
 window.open(url,"_blank");
 }
-
 </script>
-
 </body>
 </html>
